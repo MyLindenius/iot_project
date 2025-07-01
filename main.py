@@ -11,10 +11,9 @@ import urequests as requests
 
 TOKEN = keys.TOKEN_UBIDDOTS # Ubidots token
 DEVICE_LABEL = keys.DEVICE_LABEL # device label to send
-VARIABLE_LABEL = keys.VARIABLE_LABEL  # variable label to send
+VARIABLE_LABEL_TEMP = keys.VARIABLE_LABEL_TEMP  # variable label to send
+VARIABLE_LABEL_HUM = keys.VARIABLE_LABEL_HUM
 DELAY = 5  # Delay in seconds
-
-print("Test")
 
 # Set PINs
 led = Pin("LED", Pin.OUT) # Set the OUTPUT pin to on-board LED
@@ -22,6 +21,10 @@ sensor = dht.DHT11(Pin(16)) # Pin where temp and hum data
 red = PWM(Pin(11))
 green = PWM(Pin(14))
 blue = PWM(Pin(15))
+
+red.freq(1000)
+green.freq(1000)
+blue.freq(1000)
 
 
 
@@ -59,14 +62,11 @@ def set_color(r, g, b):
 # Example: change color based on temp
 def update_color(temp_c):
     if temp_c < 18:
-        # Cold - Blue
-        set_color(0, 0, 1023)
-    elif temp_c < 25:
-        # Comfortable - Green
-        set_color(1023, 0, 0)
+        set_color(0, 0, 6553)      # Blue
+    elif temp_c < 24:
+        set_color(6553, 0, 0)      # Green
     else:
-        # Hot - Red
-        set_color(0, 1023, 0)
+        set_color(0, 6553, 0)      # Red
 
 
 while True:
@@ -78,12 +78,13 @@ while True:
         print("Temperature:", temp, "°C")
         print("Humidity:", hum, "%")
         update_color(temp)
-        led.off()  # turn LED on to signal success
+        led.off()
     except OSError as e:
         print("Failed to read from DHT11: ", e)
         led.off()  # turn LED off to signal failure
 
-    #returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL, temp)
+    returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL_TEMP, temp)
+    returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL_HUM, hum)
     sleep(DELAY)
 
 
