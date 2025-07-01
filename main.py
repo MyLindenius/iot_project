@@ -59,7 +59,7 @@ def set_color(r, g, b):
     green.duty_u16(g)
     blue.duty_u16(b)
 
-# Example: change color based on temp
+# These are set to around 10% of max strenght
 def update_color(temp_c):
     if temp_c < 18:
         set_color(0, 0, 6553)      # Blue
