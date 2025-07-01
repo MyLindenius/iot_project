@@ -8,15 +8,15 @@ I decided on this project as the data collected would be interesting and somethi
 
 ## Material
 
-| Item | Where | Price |
-| --------------- | --------------- | --------------- |
-| Raspberry Pi Pico WH     | [Elektrokit]([https://www.electrokit.com/en/temp/fuktsensor-dht11](https://www.electrokit.com/en/raspberry-pi-pico-wh))     | 99 SEK    |
-| DHT11    | [Elektrokit](https://www.electrokit.com/en/temp/fuktsensor-dht11)       | 39 SEK    |
-| RGB LED SMD    | [Elektrokit](https://www.electrokit.com/en/led-modul-rgb-smd)     | 23 SEK    |
-| Resistor 330 Ohm   | [Elektrokit](https://www.electrokit.com/en/motstand-kolfilm-0.25w-330ohm-330r)     | 10 SEK    |
-| Resistor 10k Ohm    | [Elektrokit](https://www.electrokit.com/en/motstand-kolfilm-0.25w-10kohm-10k)     | 10 SEK    |
-| Wires male/male   | [Elektrokit](https://www.electrokit.com/en/labbsladd-40-pin-30cm-hane/hane)  | 55 SEK    |
-| Breadboard   | [Elektrokit](https://www.electrokit.com/en/kopplingsdack-840-anslutningar)  | 69 SEK    |
+| Item                 | Category       | Where                                                                 | Price  |
+| -------------------- | -------------- | ------------------ | ------ |
+| Raspberry Pi Pico WH  | Microcontroller| [Elektrokit](https://www.electrokit.com/en/raspberry-pi-pico-wh)     | 99 SEK |
+| DHT11                | Humidity and Temperature sensor         | [Elektrokit](https://www.electrokit.com/en/temp/fuktsensor-dht11)    | 39 SEK |
+| RGB LED SMD          | LED Module     | [Elektrokit](https://www.electrokit.com/en/led-modul-rgb-smd)        | 23 SEK |
+| Resistor 330 Ohm     | Resistor       | [Elektrokit](https://www.electrokit.com/en/motstand-kolfilm-0.25w-330ohm-330r) | 10 SEK |
+| Resistor 10k Ohm     | Resistor       | [Elektrokit](https://www.electrokit.com/en/motstand-kolfilm-0.25w-10kohm-10k) | 10 SEK |
+| Wires male/male      | Cables         | [Elektrokit](https://www.electrokit.com/en/labbsladd-40-pin-30cm-hane/hane) | 55 SEK |
+| Breadboard           | Board          | [Elektrokit](https://www.electrokit.com/en/kopplingsdack-840-anslutningar) | 69 SEK |
 
 Total: 314 SEK
 
