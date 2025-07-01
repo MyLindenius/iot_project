@@ -10,14 +10,14 @@ def connect():
         # set power mode to get WiFi power-saving off (if needed)
         #wlan.config(pm = 0xa11140)
         wlan.connect(keys.WIFI_SSID, keys.WIFI_PASS)  # Your WiFi Credential
-        print('Waiting for connection... ', end='')
+        print('Waiting for connection...', end='')
         # Check if it is connected otherwise wait
 
     
         while not wlan.isconnected() and wlan.status() >= 0:
             print('.', end='')
             print(f" status: {wlan.status()}")
-            sleep(0.5)
+            sleep(1)
         print(f"status: {wlan.status()}")
 
     # Print the IP assigned by router
