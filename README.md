@@ -50,13 +50,15 @@ Now it will also be possible to press a icon of a terminal called "Create termin
 You can try printing something in this terminal to double check that everything work as expected. Eg: print("Hello World!)
 
 ### Project file structure and uploading code.
+```
 Your_project_name
 |-lib
-| |-library.py
-| |-keys.py
+|  |-library.py
+|  |-keys.py
 |-boot.py
 |-main.py
 |-... // other configuration files and folders
+```
 
 Keys.py will contain secret keys, make sure to not share this file.
 The following [link](https://hackmd.io/@lnu-iot/B1T1_KM83) contains a step guide into how to create your project and how to upload your code to the Raspberry Pi Pico.
@@ -72,6 +74,7 @@ TIG Stack consists of Telegraf, InfluxDB and, Grafana.
 For the code, there is three parts that are extra interesting to understand.
 
 ### Connect to the internet
+```
 def connect():
     wlan = network.WLAN(network.STA_IF)
     if not wlan.isconnected():
@@ -85,10 +88,12 @@ def connect():
     ip = wlan.ifconfig()[0]
     print('\nConnected on {}'.format(ip))
     return ip
+```
 
 The above code connects to the local WiFi and will be assigned with a IP within the local IP range.
 
 ### Sensor for humidity and temperature
+```
     led.on()
     try:
         sensor.measure()
@@ -98,11 +103,13 @@ The above code connects to the local WiFi and will be assigned with a IP within 
         print("Humidity:", hum, "%")
         update_color(temp)
         led.off()
+```
 
 The above code activates the sensor (DTH11 in this case) and calls built in functions to capture what the current temperature and humidity is.
 The code also prints the information to the terminal and calls a function that updates the color of the RGB LED SMD module.
 
 ### Update color on RGB LED SMD
+```
 def update_color(temp_c):
     if temp_c < 18:
         set_color(0, 0, 6553)
@@ -110,7 +117,7 @@ def update_color(temp_c):
         set_color(6553, 0, 0)
     else:
         set_color(0, 6553, 0)
-
+```
 The above code is a simple function that checks what the temperature is and based on that change the color of the RGB LED SMD to either blue, green or red.
 
 
