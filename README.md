@@ -61,4 +61,67 @@ Your_project_name
 Keys.py will contain secret keys, make sure to not share this file.
 The following [link](https://hackmd.io/@lnu-iot/B1T1_KM83) contains a step guide into how to create your project and how to upload your code to the Raspberry Pi Pico.
 
+## Platform for Data Visualization
+I used the platform Ubidots as it has a free plan that covers the needs for this project (displaying temperature and humidity).
+Ubidots is a platform that requires no coding to get it to work, making it quick and easy to set up.
+To scale this project further, a self hosted data visualization application would be a great opportunity.
+A option that I looked into but decided not to use this time was TIG Stack.
+TIG Stack consists of Telegraf, InfluxDB and, Grafana.
+
+## Code
+For the code, there is three parts that are extra interesting to understand.
+
+### Connect to the internet
+def connect():
+    wlan = network.WLAN(network.STA_IF)
+    if not wlan.isconnected():
+        print('connecting to network...')
+        wlan.active(True)
+        wlan.connect(keys.WIFI_SSID, keys.WIFI_PASS)  # Your WiFi Credential
+        while not wlan.isconnected() and wlan.status() >= 0:
+            print(f" status: {wlan.status()}")
+            sleep(1)
+        print(f"status: {wlan.status()}")
+    ip = wlan.ifconfig()[0]
+    print('\nConnected on {}'.format(ip))
+    return ip
+
+The above code connects to the local WiFi and will be assigned with a IP within the local IP range.
+
+### Sensor for humidity and temperature
+    led.on()
+    try:
+        sensor.measure()
+        temp = sensor.temperature()
+        hum = sensor.humidity()
+        print("Temperature:", temp, "°C")
+        print("Humidity:", hum, "%")
+        update_color(temp)
+        led.off()
+
+The above code activates the sensor (DTH11 in this case) and calls built in functions to capture what the current temperature and humidity is.
+The code also prints the information to the terminal and calls a function that updates the color of the RGB LED SMD module.
+
+### Update color on RGB LED SMD
+def update_color(temp_c):
+    if temp_c < 18:
+        set_color(0, 0, 6553)
+    elif temp_c < 24:
+        set_color(6553, 0, 0)
+    else:
+        set_color(0, 6553, 0)
+
+The above code is a simple function that checks what the temperature is and based on that change the color of the RGB LED SMD to either blue, green or red.
+
+
+## Transmitting the data
+I decided to send the data for every 5th seconds in the current code. 
+This is a good amount while coding the project as it allows for fast feedback on what the code changes results in.
+However, this often is probably not needed when using the finished project, it would be enough with sending only once a minute or less.
+
+This project used WiFi to send the data with the help of API calls.
+The data was sent as JSON objects.
+
+
+
 
