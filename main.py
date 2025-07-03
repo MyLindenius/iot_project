@@ -13,7 +13,7 @@ TOKEN = keys.TOKEN_UBIDDOTS # Ubidots token
 DEVICE_LABEL = keys.DEVICE_LABEL # device label to send
 VARIABLE_LABEL_TEMP = keys.VARIABLE_LABEL_TEMP  # variable label to send
 VARIABLE_LABEL_HUM = keys.VARIABLE_LABEL_HUM
-DELAY = 5  # Delay in seconds
+DELAY = 64  # Delay in seconds
 
 # Set PINs
 led = Pin("LED", Pin.OUT) # Set the OUTPUT pin to on-board LED
