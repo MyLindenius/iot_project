@@ -156,12 +156,12 @@ Some possible future improvements for this project would be the following:
 * **Self-hosted database and platform for data visualization**  
 This would increase the opptions of what can be done, it would also let the user store their data longer.
 * **Adding a buzzer**  
-This would make it so that instead of only having a visual aid o when the heat is to high, the user would also get a notification in the form of a sound. This can be done wit h a passive or active Piezo.
+This would make it so that instead of only having a visual aid of when the heat is to high, the user would also get a notification in the form of a sound. This can be done with a passive or active Piezo.
 
 
 ## Recreate this project
 Disclaimer: Always look at the userguide for the sensors that you use to ensure that the correct resistance, etc, is used.
 
 Below is a more detailed image showing how the circuit is constructed.
-
+*This is a TODO: will be done 9th July
 
