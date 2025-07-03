@@ -22,8 +22,11 @@ Total: 314 SEK
 
 You will also need a USB A male to B micro.
 
+<img src="/image/PICO-WH-HERO.webp" width="400" alt="Raspberry Pi Pico WH" />
 The Raspberry Pi Pico WH is a controller with pre-soldered pins making it easy to use out of the box. The controlle also have WiFi functionalities making it perfect for IoT projects.
+<img src="/image/41016231.jpg" width="400" alt="Sensor DHT11" />
 The DHT11 is a humidity and temperature sensor that is pre-calibrated and can measure with a accuracy of +-5 in humidity precentage and +-2 in temperature.
+<img src="/image/41015716.jpg" width="400" alt="RGB LED SMD module" />
 The RGB LED SMD is a module that allows the user to control what color is displayed.
 
 ## Computer setup
@@ -69,6 +72,7 @@ Ubidots is a platform that requires no coding to get it to work, making it quick
 To scale this project further, a self hosted data visualization application would be a great opportunity.
 A option that I looked into but decided not to use this time was TIG Stack.
 TIG Stack consists of Telegraf, InfluxDB and, Grafana.
+This option would also be great if you want to save the data that you collect for more than 1 month without having to pay a premium.
 
 ## Code
 For the code, there is three parts that are extra interesting to understand.
@@ -130,5 +134,11 @@ This project used WiFi to send the data with the help of API calls.
 The data was sent as JSON objects.
 
 
+## Presenting the data
+
+![Visualization of humidity and temperature on platform](/image/iot_res.PNG)
+The platform display a simple visualization of the humidity as a percentage of between 0 and 100.
+The temperature is visualized as a thermostat.
+Ubidots free plan will save the data for 1 month.
 
 
