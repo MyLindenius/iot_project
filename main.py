@@ -1,8 +1,5 @@
 # Import from libraries
-import time
 from machine import Pin, PWM
-import socket
-import network
 import dht
 import keys
 from time import sleep
@@ -13,7 +10,7 @@ TOKEN = keys.TOKEN_UBIDDOTS # Ubidots token
 DEVICE_LABEL = keys.DEVICE_LABEL # device label to send
 VARIABLE_LABEL_TEMP = keys.VARIABLE_LABEL_TEMP  # variable label to send
 VARIABLE_LABEL_HUM = keys.VARIABLE_LABEL_HUM
-DELAY = 64  # Delay in seconds
+DELAY = 10  # Delay in seconds
 
 # Set PINs
 led = Pin("LED", Pin.OUT) # Set the OUTPUT pin to on-board LED
@@ -33,7 +30,8 @@ def build_json(variable, value):
     try:
         data = {variable: {"value": value}}
         return data
-    except:
+    except Exception as e:
+        print("Error building JSON:", e)
         return None
     
 
@@ -49,9 +47,9 @@ def sendData(device, variable, value):
             req = requests.post(url=url, headers=headers, json=data)
             return req.json()
         else:
-            pass
-    except:
-        pass
+            print("No data to send.")
+    except Exception as e:
+        print("Exception in sendData:", e)
 
 
 def set_color(r, g, b):
@@ -75,16 +73,16 @@ while True:
         sensor.measure()
         temp = sensor.temperature()
         hum = sensor.humidity()
-        print("Temperature:", temp, "°C")
-        print("Humidity:", hum, "%")
+        print(f"Temperature: {temp}°C")
+        print(f"Humidity: {hum}%")
         update_color(temp)
-        led.off()
+
+        returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL_TEMP, temp)
+        returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL_HUM, hum)
     except OSError as e:
         print("Failed to read from DHT11: ", e)
         led.off()  # turn LED off to signal failure
 
-    returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL_TEMP, temp)
-    returnValue = sendData(DEVICE_LABEL, VARIABLE_LABEL_HUM, hum)
     sleep(DELAY)
 
 
