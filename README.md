@@ -157,11 +157,20 @@ Some possible future improvements for this project would be the following:
 This would increase the opptions of what can be done, it would also let the user store their data longer.
 * **Adding a buzzer**  
 This would make it so that instead of only having a visual aid of when the heat is to high, the user would also get a notification in the form of a sound. This can be done with a passive or active Piezo.
+* **Own application for tablet**
+It would nice to create a application that can be run on a tablet or ipad, so that the tablet could be placed besides the sensor and give a fuller picture of what exactly the sensors have measured, without having to login to the Ubidots website.
 
 
 ## Recreate this project
 Disclaimer: Always look at the userguide for the sensors that you use to ensure that the correct resistance, etc, is used.
 
 Below is a more detailed image showing how the circuit is constructed.
-*This is a TODO: will be done 9th July
+<img src="/image/bread.PNG" width="600" alt="Breadboard construction" />
+
+It is important to know that the exact components used for this project are not the same as in the breadboard visualization.
+The DHT11 that is used in the project only has 3 pins, and not 4 as in the visualization.
+The RGB LED SMD module used in this project also have different pin layouts compared to the one in the image.
+It is therefore important to read the manual of which pins is what on the peace that you have to not destroy anything.
+In this project, I have used 3 resistors of 330 Ohm for the RGB LED SMD module, I have also used 10k Ohm for the DTH11 sensor.
+This is slightly higher then what these components require.
 
