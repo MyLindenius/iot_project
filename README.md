@@ -138,12 +138,13 @@ This project used WiFi to send the data with the help of API calls.
 The data was sent as JSON objects.
 
 Using Wifi has some restrictions for the device.
-The biggest drawback is that it consumes a lot of energy compared to other options such as BLE and RoWa.
-It also have a shorter connection range than RoWa (but further than BLE).
+The biggest drawback is that it consumes a lot of energy compared to other options such as BLE and LoRa.
+It also has a shorter connection range than LoRa (but further than BLE).
 Since this device is designed to be used inside the home, these drawbacks are fine. 
 The device will be in range of the WiFi and at the same time also have access to power.
 
-If long range and low battery consumption is important for you, it is better to look into using RoWa, however, RoWa comes with its own drawbacks such as higher risk of high latency.
+If long range and low battery consumption is important for you, it is better to look into using LoRa , however, LoRa comes with its own drawbacks such as higher risk of high latency.
+
 
 
 ## Presenting the data
@@ -177,7 +178,7 @@ Below is a more detailed image showing how the circuit is constructed.
 It is important to know that the exact components used for this project are not the same as in the breadboard visualization.
 The DHT11 that is used in the project only has 3 pins, and not 4 as in the visualization.
 The RGB LED SMD module used in this project also has different pin layouts compared to the one in the image.
-It is therefore important to read the manual of which pins is what on the peace that you have to not destroy anything.
+It is therefore important to read the manual of which pins is what on the piece that you have to not destroy anything.
 In this project, I have used 3 resistors of 330 Ohm for the RGB LED SMD module, I have also used 10k Ohm for the DTH11 sensor.
 This is slightly higher than what these components require.
 
