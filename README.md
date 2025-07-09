@@ -3,6 +3,8 @@
 ## Brief overview
 This project makes it possible to monitor the humidity and temperature in a room. The project also have a visual warning depending on the temperature to alert the user that the temperature is outside wanted values. My name is My Lindenius (ml227kw) and this IoT device has been built as a project for the course [Introduction Applied Internet of Things](https://lnu.se/kurs/tillampad-internet-of-things-introduktion/distans-internationell-engelska-sommar/) at Linné university. This project would approximetly take 10 hours to complete having the solution available. Of course the time needed will also depend on prior knowledge and if any errors appear a long the way.
 
+At the very bottom of the README is a detailed overview of the assembled board for this project, which can be used as a reference to help recreate this project.
+
 ## Objective
 I decided on this project as the data collected would be interesting and something that changes through out the day. This data is valuable for me as I have an animal with asthma, making it even more important to ensure proper humidity and temperature. This project can however also be valuable to anyone that want to ensure that their home has a good environment. I think this project will give an insight into how to build your own device that can communicate over the network and a nice introduction to the physical parts of a device.
 
@@ -126,9 +128,12 @@ The above code is a simple function that checks what the temperature is and base
 
 
 ## Transmitting the data
-I decided to send the data for every 5th seconds in the current code. 
-This is a good amount while coding the project as it allows for fast feedback on what the code changes results in.
-However, this often is probably not needed when using the finished project, it would be enough with sending only once a minute or less.
+I decided to send the data for every 64th seconds in the current code. 
+This is a good amount for the finished project as higher accuracy is not needed.
+This amount will result in 1440 data requests per day per measurment.
+Since I use 2 measurments in this project, it would result in 2880 data requests a day, which is within the Ubidots limit of 4000 data requests a day.
+While creating this project, it could instead be good to have the data being sent more often as it would allow for quicker debugging of when changes are made in the code base.
+I had a 5 second delay between data being sent while coding.
 
 This project used WiFi to send the data with the help of API calls.
 The data was sent as JSON objects.
@@ -136,9 +141,27 @@ The data was sent as JSON objects.
 
 ## Presenting the data
 
-![Visualization of humidity and temperature on platform](/image/iot_res.PNG)
+<img src="/image/iot_res.PNG" width="600" alt="Visualization of humidity and temperature on platform" />
 The platform display a simple visualization of the humidity as a percentage of between 0 and 100.
 The temperature is visualized as a thermostat.
 Ubidots free plan will save the data for 1 month.
 
+
+## Final product
+<img src="/image/product.jpg" width="400" alt="Finished IoT device" />
+Above is a image of the finished IoT device.
+This project has been a good learning experience and I am happy with the outcome.
+
+Some possible future improvements for this project would be the following:
+* **Self-hosted database and platform for data visualization**  
+This would increase the opptions of what can be done, it would also let the user store their data longer.
+* **Adding a buzzer**  
+This would make it so that instead of only having a visual aid of when the heat is to high, the user would also get a notification in the form of a sound. This can be done with a passive or active Piezo.
+
+
+## Recreate this project
+Disclaimer: Always look at the userguide for the sensors that you use to ensure that the correct resistance, etc, is used.
+
+Below is a more detailed image showing how the circuit is constructed.
+*This is a TODO: will be done 9th July
 
