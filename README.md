@@ -105,10 +105,9 @@ The above code connects to the local WiFi and will be assigned with an IP within
         sensor.measure()
         temp = sensor.temperature()
         hum = sensor.humidity()
-        print("Temperature:", temp, "°C")
-        print("Humidity:", hum, "%")
+        print(f"Temperature: {temp}°C")
+        print(f"Humidity: {hum}%")
         update_color(temp)
-        led.off()
 ```
 
 The above code activates the sensor (DTH11 in this case) and calls built in functions to capture what the current temperature and humidity is.
@@ -137,6 +136,14 @@ I had a 5 second delay between data being sent while coding.
 
 This project used WiFi to send the data with the help of API calls.
 The data was sent as JSON objects.
+
+Using Wifi has some restrictions for the device.
+The biggest drawback is that it consumes a lot of energy compared to other options such as BLE and RoWa.
+It also have a shorter connection range than RoWa (but further than BLE).
+Since this device is designed to be used inside the home, these drawbacks are fine. 
+The device will be in range of the WiFi and at the same time also have access to power.
+
+If long range and low battery consumption is important for you, it is better to look into using RoWa, however, RoWa comes with its own drawbacks such as higher risk of high latency.
 
 
 ## Presenting the data
